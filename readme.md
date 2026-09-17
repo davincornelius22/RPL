@@ -1,283 +1,245 @@
-# KantinQ
+# 🍽️ KantinQ
 
-### Sistem Antrean Digital dan Pemesanan Kantin Kampus Berbasis QR Code
+### Sistem Pemesanan dan Antrean Digital Kantin Kampus Berbasis QR Code
 
-## 1. Deskripsi Singkat
-
-**KantinQ** adalah aplikasi berbasis web yang dirancang untuk membantu mahasiswa melakukan pemesanan makanan dan mengurangi antrean fisik di kantin kampus.
-
-Mahasiswa dapat melakukan scan QR Code yang tersedia di kantin untuk melihat menu, membuat pesanan, mendapatkan nomor antrean, dan memantau status pesanan melalui smartphone.
-
-Penjual kantin dapat menerima pesanan, mengatur antrean, memperbarui status pesanan, serta mengelola menu yang tersedia.
+> **Pesan tanpa harus berdiri di antrean.**
 
 ---
 
-## 2. Latar Belakang dan Permasalahan
+## 📑 Daftar Isi
 
-Pada jam istirahat, kantin kampus sering mengalami antrean panjang. Mahasiswa harus berdiri dan menunggu untuk melakukan pemesanan, sehingga waktu istirahat menjadi kurang efektif.
-
-Selain itu, ketika jumlah pembeli meningkat, penjual dapat mengalami kesulitan dalam mencatat dan mengatur pesanan. Mahasiswa juga tidak selalu mengetahui apakah pesanannya masih menunggu, sedang diproses, atau sudah selesai.
-
-Permasalahan utama yang ingin diselesaikan oleh KantinQ adalah:
-
-* Antrean fisik yang panjang.
-* Proses pemesanan yang masih dilakukan secara langsung.
-* Kesulitan mengetahui status pesanan.
-* Kesulitan penjual dalam mengatur banyak pesanan.
-* Potensi kesalahan dalam pencatatan pesanan.
-
-KantinQ menyediakan sistem antrean dan pemesanan digital agar proses tersebut menjadi lebih teratur.
-
----
-
-## 3. Tujuan Aplikasi
-
-Tujuan utama KantinQ adalah:
-
-1. Mengurangi antrean fisik di kantin.
-2. Mempermudah mahasiswa dalam melakukan pemesanan.
-3. Memberikan nomor antrean secara digital.
-4. Memudahkan mahasiswa memantau status pesanan.
-5. Membantu penjual mengelola pesanan dengan lebih teratur.
+1. [Tentang KantinQ](#1-tentang-kantinq)
+2. [Permasalahan yang Diangkat](#2-permasalahan-yang-diangkat)
+3. [Tujuan Pengembangan](#3-tujuan-pengembangan)
+4. [Manfaat Sistem](#4-manfaat-sistem)
+5. [Fitur Utama](#5-fitur-utama)
+6. [Alur Kerja Sistem](#6-alur-kerja-sistem)
+7. [Arsitektur Aplikasi](#7-arsitektur-aplikasi)
+8. [Teknologi yang Digunakan](#8-teknologi-yang-digunakan)
+9. [Struktur Proyek](#9-struktur-proyek)
+10. [Batasan Sistem](#10-batasan-sistem)
+11. [Cara Menjalankan](#11-cara-menjalankan)
+12. [Rencana Pengembangan](#12-rencana-pengembangan)
+13. [Kriteria Keberhasilan](#13-kriteria-keberhasilan)
+14. [Kontributor](#14-kontributor)
 
 ---
 
-## 4. Profil Target Pengguna
+# 1. Tentang KantinQ
 
-### Mahasiswa
+**KantinQ** merupakan aplikasi web yang dirancang untuk membantu proses pemesanan makanan dan pengelolaan antrean di kantin kampus.
 
-Mahasiswa merupakan pengguna utama sebagai pembeli.
+Sistem memanfaatkan **QR Code** sebagai akses utama untuk masuk ke halaman pemesanan. Mahasiswa cukup memindai QR Code yang tersedia pada stan kantin, kemudian memilih makanan atau minuman yang diinginkan.
 
-Mahasiswa dapat:
+Setelah pesanan dibuat, sistem akan menghasilkan **nomor antrean digital**. Mahasiswa dapat melihat status pesanan secara langsung melalui halaman web tanpa harus terus berdiri di depan penjual.
 
-* Scan QR Code.
-* Melihat menu.
-* Memilih makanan dan minuman.
-* Membuat pesanan.
-* Mendapatkan nomor antrean.
-* Melihat status pesanan.
-* Mengambil pesanan setelah selesai.
+Di sisi penjual, tersedia dashboard untuk melihat pesanan yang masuk, mengatur status pesanan, mengelola menu, dan memantau antrean yang sedang berjalan.
 
-### Penjual Kantin
-
-Penjual menggunakan aplikasi untuk:
-
-* Melihat pesanan masuk.
-* Mengelola antrean.
-* Mengubah status pesanan.
-* Menambah dan mengubah menu.
-* Mengubah ketersediaan makanan.
-
----
-
-## 5. Manfaat Aplikasi
-
-### Bagi Mahasiswa
-
-* Mengurangi waktu menunggu dalam antrean.
-* Dapat memesan melalui smartphone.
-* Dapat melihat status pesanan.
-* Tidak perlu terus berada di depan kasir untuk mengetahui perkembangan pesanan.
-
-### Bagi Penjual
-
-* Mempermudah pengelolaan pesanan.
-* Membantu mengatur antrean.
-* Mengurangi kesalahan pencatatan.
-* Mempermudah pengelolaan menu dan stok.
-
-### Manfaat Utama
-
-**Membuat proses pemesanan dan antrean kantin menjadi lebih cepat, teratur, dan mudah dipantau.**
-
----
-
-## 6. Fitur Inti
-
-### 1. Scan QR Code
-
-Mahasiswa melakukan scan QR Code yang tersedia di kantin untuk membuka halaman pemesanan.
-
-### 2. Menu Digital
-
-Menampilkan:
-
-* Nama makanan dan minuman.
-* Harga.
-* Deskripsi sederhana.
-* Ketersediaan menu.
-
-### 3. Pemesanan
-
-Mahasiswa dapat:
-
-* Memilih menu.
-* Menentukan jumlah pesanan.
-* Melihat total pesanan.
-* Mengirim pesanan.
-
-### 4. Nomor Antrean Digital
-
-Setelah melakukan pemesanan, sistem memberikan nomor antrean secara otomatis.
-
-Contoh:
-
-`Nomor Pesanan: A-027`
-
-### 5. Status Pesanan
-
-Status pesanan terdiri dari:
-
-`Menunggu → Diproses → Siap Diambil → Selesai`
-
-### 6. Dashboard Penjual
-
-Penjual dapat melihat:
-
-* Pesanan baru.
-* Pesanan yang sedang diproses.
-* Pesanan yang sudah siap.
-* Riwayat pesanan.
-
-### 7. Pengelolaan Menu
-
-Penjual dapat:
-
-* Menambah menu.
-* Mengubah menu.
-* Menghapus menu.
-* Mengubah harga.
-* Mengubah ketersediaan menu.
-
-### 8. Informasi Kondisi Antrean
-
-Sistem menampilkan kondisi antrean berdasarkan jumlah pesanan aktif.
-
-Contoh:
-
-* **Sepi**
-* **Sedang**
-* **Ramai**
-
----
-
-## 7. Alur Utama Sistem
+Secara umum, KantinQ memiliki alur:
 
 ```text
-Mahasiswa
-    ↓
-Scan QR Code
-    ↓
-Melihat Menu
-    ↓
-Memilih Makanan
-    ↓
-Membuat Pesanan
-    ↓
-Mendapatkan Nomor Antrean
-    ↓
-Menunggu
-    ↓
+Scan QR
+   ↓
+Lihat Menu
+   ↓
+Pilih Pesanan
+   ↓
+Konfirmasi
+   ↓
+Nomor Antrean
+   ↓
 Pesanan Diproses
-    ↓
-Pesanan Siap
-    ↓
-Mahasiswa Mengambil Pesanan
+   ↓
+Siap Diambil
+   ↓
+Selesai
 ```
 
-Alur penjual:
+---
+
+# 2. Permasalahan yang Diangkat
+
+Pada jam istirahat, jumlah mahasiswa yang datang ke kantin biasanya meningkat dalam waktu yang hampir bersamaan. Kondisi ini dapat menyebabkan antrean panjang dan membuat proses pemesanan menjadi kurang efisien.
+
+Beberapa permasalahan yang menjadi dasar pengembangan KantinQ adalah:
+
+### 2.1 Antrean Fisik
+
+Mahasiswa harus berdiri langsung di depan stan untuk memesan makanan. Ketika jumlah pembeli meningkat, waktu tunggu menjadi lebih lama.
+
+### 2.2 Pemesanan Secara Langsung
+
+Pesanan disampaikan secara verbal kepada penjual. Dalam kondisi ramai, cara ini dapat menyebabkan kesalahan pencatatan atau pesanan tertukar.
+
+### 2.3 Tidak Ada Informasi Status Pesanan
+
+Setelah memesan, mahasiswa biasanya hanya menunggu atau bertanya kembali kepada penjual untuk mengetahui apakah makanannya sudah selesai.
+
+### 2.4 Pengelolaan Antrean Kurang Terstruktur
+
+Penjual harus mengingat dan mengatur banyak pesanan sekaligus, terutama ketika jumlah pembeli meningkat.
+
+### 2.5 Tidak Ada Informasi Kondisi Antrean
+
+Mahasiswa tidak mengetahui kondisi antrean sebelum memesan, sehingga sulit memperkirakan waktu tunggu.
+
+### 💡 Pendekatan Solusi
+
+KantinQ mengubah proses tersebut menjadi alur digital:
+
+```mermaid
+flowchart TD
+    A[Mahasiswa] --> B[Scan QR Code]
+    B --> C[Menu Digital]
+    C --> D[Pilih Makanan]
+    D --> E[Buat Pesanan]
+    E --> F[Nomor Antrean]
+    F --> G[Dashboard Penjual]
+    G --> H[Pesanan Diproses]
+    H --> I[Siap Diambil]
+    I --> J[Pesanan Selesai]
+```
+
+---
+
+# 3. Tujuan Pengembangan
+
+KantinQ dikembangkan dengan beberapa tujuan utama:
+
+* Mengurangi ketergantungan pada antrean fisik saat melakukan pemesanan.
+* Membuat proses pemesanan lebih cepat dan terstruktur.
+* Memberikan nomor antrean secara otomatis.
+* Memberikan informasi status pesanan kepada mahasiswa.
+* Membantu penjual mengelola antrean dan pesanan melalui satu dashboard.
+* Menyediakan sistem yang sederhana dan mudah digunakan melalui smartphone.
+
+---
+
+# 4. Manfaat Sistem
+
+## 👨‍🎓 Bagi Mahasiswa
+
+* Tidak perlu berdiri dalam antrean hanya untuk melakukan pemesanan.
+* Dapat melihat menu dan harga melalui smartphone.
+* Mendapatkan nomor antrean secara otomatis.
+* Dapat memantau perkembangan pesanan.
+* Mengetahui kapan pesanan sudah dapat diambil.
+
+## 👨‍🍳 Bagi Penjual
+
+* Pesanan masuk dalam sistem secara terstruktur.
+* Lebih mudah melihat urutan antrean.
+* Status pesanan dapat diperbarui dengan mudah.
+* Data menu dapat dikelola melalui dashboard.
+* Mengurangi kemungkinan kesalahan pencatatan.
+
+## 🎯 Manfaat Utama
+
+> **KantinQ membantu membuat proses pemesanan dan antrean makanan di lingkungan kampus menjadi lebih terorganisir dan mudah dipantau.**
+
+---
+
+# 5. Fitur Utama
+
+| Fitur                | Deskripsi                                                     |
+| -------------------- | ------------------------------------------------------------- |
+| 📱 QR Ordering       | QR Code menjadi pintu masuk ke halaman pemesanan              |
+| 🍔 Menu Digital      | Menampilkan daftar makanan, minuman, harga, dan ketersediaan  |
+| 🛒 Keranjang Pesanan | Pengguna dapat memilih item dan menentukan jumlah             |
+| 🔢 Nomor Antrean     | Sistem membuat nomor antrean secara otomatis                  |
+| 🔄 Status Pesanan    | Pesanan berpindah dari menunggu hingga selesai                |
+| 📋 Dashboard Penjual | Menampilkan seluruh pesanan aktif                             |
+| 🍜 Manajemen Menu    | Menambah, mengubah, menghapus, dan mengatur ketersediaan menu |
+| 📢 Kondisi Antrean   | Menampilkan kondisi antrean berdasarkan jumlah pesanan aktif  |
+| 📜 Riwayat Pesanan   | Menyimpan daftar pesanan yang telah selesai atau dibatalkan   |
+| 🧾 Detail Pesanan    | Menampilkan item, jumlah, harga, total, dan nomor antrean     |
+
+### Status Pesanan
 
 ```text
-Penjual Login
-    ↓
-Melihat Pesanan Masuk
-    ↓
-Menerima Pesanan
-    ↓
-Memproses Pesanan
-    ↓
-Mengubah Status Menjadi Siap
-    ↓
-Pesanan Diambil
-    ↓
-Status Selesai
+WAITING
+   ↓
+PROCESSING
+   ↓
+READY
+   ↓
+COMPLETED
+```
+
+Pesanan juga dapat berakhir dengan status:
+
+```text
+CANCELLED
 ```
 
 ---
 
-## 8. Fitur yang Tidak Dikerjakan
+# 6. Alur Kerja Sistem
 
-Untuk menjaga ruang lingkup agar realistis diselesaikan dalam 12 pertemuan, fitur berikut tidak dikerjakan pada versi pertama:
+## 6.1 Alur Mahasiswa
 
-* Pembayaran online.
-* Integrasi QRIS, GoPay, DANA, atau OVO.
-* Pengantaran makanan.
-* Integrasi WhatsApp atau SMS.
-* Notifikasi push kompleks.
-* Aplikasi Android/iOS khusus.
-* GPS atau pelacakan lokasi.
-* Sistem rekomendasi makanan berbasis AI.
-* Sistem loyalty atau poin pelanggan.
-* Integrasi dengan sistem akademik kampus.
-* Sistem multi-kampus.
-* Reservasi meja.
-* Analisis penjualan yang kompleks.
+```mermaid
+flowchart LR
+    A[Scan QR] --> B[Buka Halaman Kantin]
+    B --> C[Lihat Menu]
+    C --> D[Pilih Menu]
+    D --> E[Konfirmasi Pesanan]
+    E --> F[Sistem Membuat Nomor Antrean]
+    F --> G[Lihat Status Pesanan]
+    G --> H[Ambil Pesanan]
+```
 
-Pembayaran dilakukan secara langsung di kasir pada versi pertama.
+## 6.2 Alur Penjual
 
----
+```mermaid
+flowchart LR
+    A[Dashboard] --> B[Pesanan Masuk]
+    B --> C[Proses Pesanan]
+    C --> D[Ubah Status]
+    D --> E[Pesanan Siap]
+    E --> F[Pesanan Diambil]
+    F --> G[Selesai]
+```
 
-## 9. Kriteria Aplikasi Dinyatakan Berhasil
+## 6.3 Kondisi Antrean
 
-Aplikasi dinyatakan berhasil apabila:
+Sistem memberikan indikator sederhana berdasarkan jumlah pesanan aktif:
 
-* Mahasiswa dapat membuka sistem melalui QR Code.
-* Mahasiswa dapat melihat menu dan harga.
-* Mahasiswa dapat membuat pesanan.
-* Sistem dapat memberikan nomor antrean secara otomatis.
-* Data pesanan tersimpan dengan benar.
-* Penjual dapat melihat pesanan masuk.
-* Penjual dapat mengubah status pesanan.
-* Mahasiswa dapat melihat status pesanannya.
-* Penjual dapat mengelola menu.
-* Sistem dapat menampilkan kondisi antrean.
-* Data tetap tersimpan setelah halaman diperbarui.
-* Seluruh fitur utama dapat berjalan tanpa error pada penggunaan normal.
-* Aplikasi dapat digunakan melalui browser desktop maupun smartphone.
+```text
+0 - 5 pesanan       → 🟢 Sepi
+6 - 15 pesanan      → 🟡 Sedang
+16+ pesanan         → 🔴 Ramai
+```
 
----
-
-## 10. Ruang Lingkup Pengembangan
-
-Pengembangan KantinQ difokuskan pada:
-
-**QR Code → Pemesanan → Nomor Antrean → Pengelolaan Pesanan → Status Pesanan**
-
-Sistem tidak berfokus pada pembayaran digital atau layanan pengantaran makanan.
+Nilai tersebut dapat disesuaikan selama tahap pengujian berdasarkan kondisi penggunaan aplikasi.
 
 ---
 
-## 11. Target Pengembangan 12 Pertemuan
+# 7. Arsitektur Aplikasi
 
-| Pertemuan | Fokus                                          |
-| --------- | ---------------------------------------------- |
-| 1         | Analisis masalah dan kebutuhan sistem          |
-| 2         | Perancangan use case dan alur sistem           |
-| 3         | Perancangan database dan ERD                   |
-| 4         | Perancangan UI/UX                              |
-| 5         | Setup project dan database                     |
-| 6         | Fitur menu dan data kantin                     |
-| 7         | Fitur pemesanan                                |
-| 8         | Sistem nomor antrean                           |
-| 9         | Dashboard penjual                              |
-| 10        | Status dan pengelolaan pesanan                 |
-| 11        | Integrasi QR Code dan testing                  |
-| 12        | Perbaikan, pengujian akhir, dan persiapan demo |
+KantinQ menggunakan arsitektur sederhana yang memisahkan antarmuka pengguna, backend, dan database.
 
----
+```mermaid
+flowchart TB
+    A[Mahasiswa / Smartphone]
+    B[Penjual / Browser]
 
-## 12. Kesimpulan
+    A --> C[React Web Application]
+    B --> C
 
-KantinQ merupakan sistem pemesanan dan antrean digital yang ditujukan untuk membantu mahasiswa dan penjual kantin dalam mengatasi permasalahan antrean fisik dan pengelolaan pesanan.
+    C --> D[REST API]
+    D --> E[Express Backend]
+    E --> F[Prisma ORM]
+    F --> G[(MySQL)]
+```
 
-Dengan memanfaatkan QR Code, mahasiswa dapat mengakses menu dan melakukan pemesanan dengan lebih praktis, sementara penjual dapat mengelola antrean dan status pesanan melalui dashboard.
+### Alur Data Pemesanan
+
+```mermaid
+flowchart TD
+    A[User Scan QR] --> B[Frontend]
+    B --> C[POST Order]
+    C --> D[Backend]
+    D --> E[Validasi Pesanan]
+    E --> F[Generate Queue]()
+```
