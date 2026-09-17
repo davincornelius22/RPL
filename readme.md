@@ -210,4 +210,74 @@ Status Selesai
 Untuk menjaga ruang lingkup agar realistis diselesaikan dalam 12 pertemuan, fitur berikut tidak dikerjakan pada versi pertama:
 
 * Pembayaran online.
-* Integrasi QRIS, GoPay
+* Integrasi QRIS, GoPay, DANA, atau OVO.
+* Pengantaran makanan.
+* Integrasi WhatsApp atau SMS.
+* Notifikasi push kompleks.
+* Aplikasi Android/iOS khusus.
+* GPS atau pelacakan lokasi.
+* Sistem rekomendasi makanan berbasis AI.
+* Sistem loyalty atau poin pelanggan.
+* Integrasi dengan sistem akademik kampus.
+* Sistem multi-kampus.
+* Reservasi meja.
+* Analisis penjualan yang kompleks.
+
+Pembayaran dilakukan secara langsung di kasir pada versi pertama.
+
+---
+
+## 9. Kriteria Aplikasi Dinyatakan Berhasil
+
+Aplikasi dinyatakan berhasil apabila:
+
+* Mahasiswa dapat membuka sistem melalui QR Code.
+* Mahasiswa dapat melihat menu dan harga.
+* Mahasiswa dapat membuat pesanan.
+* Sistem dapat memberikan nomor antrean secara otomatis.
+* Data pesanan tersimpan dengan benar.
+* Penjual dapat melihat pesanan masuk.
+* Penjual dapat mengubah status pesanan.
+* Mahasiswa dapat melihat status pesanannya.
+* Penjual dapat mengelola menu.
+* Sistem dapat menampilkan kondisi antrean.
+* Data tetap tersimpan setelah halaman diperbarui.
+* Seluruh fitur utama dapat berjalan tanpa error pada penggunaan normal.
+* Aplikasi dapat digunakan melalui browser desktop maupun smartphone.
+
+---
+
+## 10. Ruang Lingkup Pengembangan
+
+Pengembangan KantinQ difokuskan pada:
+
+**QR Code → Pemesanan → Nomor Antrean → Pengelolaan Pesanan → Status Pesanan**
+
+Sistem tidak berfokus pada pembayaran digital atau layanan pengantaran makanan.
+
+---
+
+## 11. Target Pengembangan 12 Pertemuan
+
+| Pertemuan | Fokus                                          |
+| --------- | ---------------------------------------------- |
+| 1         | Analisis masalah dan kebutuhan sistem          |
+| 2         | Perancangan use case dan alur sistem           |
+| 3         | Perancangan database dan ERD                   |
+| 4         | Perancangan UI/UX                              |
+| 5         | Setup project dan database                     |
+| 6         | Fitur menu dan data kantin                     |
+| 7         | Fitur pemesanan                                |
+| 8         | Sistem nomor antrean                           |
+| 9         | Dashboard penjual                              |
+| 10        | Status dan pengelolaan pesanan                 |
+| 11        | Integrasi QR Code dan testing                  |
+| 12        | Perbaikan, pengujian akhir, dan persiapan demo |
+
+---
+
+## 12. Kesimpulan
+
+KantinQ merupakan sistem pemesanan dan antrean digital yang ditujukan untuk membantu mahasiswa dan penjual kantin dalam mengatasi permasalahan antrean fisik dan pengelolaan pesanan.
+
+Dengan memanfaatkan QR Code, mahasiswa dapat mengakses menu dan melakukan pemesanan dengan lebih praktis, sementara penjual dapat mengelola antrean dan status pesanan melalui dashboard.
