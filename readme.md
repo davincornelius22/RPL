@@ -473,12 +473,7 @@ KantinQ dinyatakan berhasil apabila skenario utama berikut dapat berjalan dengan
 
 Proyek ini dikembangkan sebagai bagian dari tugas mata kuliah **Rekayasa Perangkat Lunak (RPL)**.
 
-**Nama Anggota Kelompok:**
-
-* Nama 1 — Developer
-* Nama 2 — Developer
-* Nama 3 — UI/UX
-* Nama 4 — Database / Backend
+* Davin Cornelius - Developer (@davincornelius22)
 
 ---
 
