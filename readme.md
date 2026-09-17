@@ -473,7 +473,7 @@ KantinQ dinyatakan berhasil apabila skenario utama berikut dapat berjalan dengan
 
 Proyek ini dikembangkan sebagai bagian dari tugas mata kuliah **Rekayasa Perangkat Lunak (RPL)**.
 
-* Davin Cornelius - Developer (@davincornelius22)
+* Davin Cornelius - Developer
 
 ---
 
