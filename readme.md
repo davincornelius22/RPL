@@ -241,5 +241,249 @@ flowchart TD
     B --> C[POST Order]
     C --> D[Backend]
     D --> E[Validasi Pesanan]
-    E --> F[Generate Queue]()
+    E --> F[Generate Queue Number]
+    F --> G[Simpan ke MySQL]
+    G --> H[Response Nomor Antrean]
+    H --> I[Tampilkan ke User]
 ```
+
+---
+
+# 8. Teknologi yang Digunakan
+
+## Frontend
+
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+
+Frontend bertanggung jawab terhadap tampilan pemesanan mahasiswa dan dashboard penjual.
+
+## Backend
+
+* Node.js
+* TypeScript
+* Express
+
+Backend menyediakan REST API untuk mengelola menu, pesanan, antrean, dan data kantin.
+
+## Database
+
+* MySQL
+* Prisma ORM
+
+Database digunakan untuk menyimpan data kantin, menu, pesanan, dan detail pesanan.
+
+## Infrastruktur
+
+* Docker Compose
+* npm Workspaces
+* `.env` untuk konfigurasi environment
+
+---
+
+# 9. Struktur Proyek
+
+KantinQ menggunakan struktur monorepo berbasis TypeScript.
+
+```text
+kantinq/
+├── apps/
+│   ├── web/
+│   │   ├── src/
+│   │   │   ├── components/
+│   │   │   ├── pages/
+│   │   │   ├── services/
+│   │   │   ├── hooks/
+│   │   │   └── App.tsx
+│   │   └── package.json
+│   │
+│   └── api/
+│       ├── src/
+│       │   ├── controllers/
+│       │   ├── services/
+│       │   ├── routes/
+│       │   └── server.ts
+│       ├── prisma/
+│       │   ├── schema.prisma
+│       │   └── seed.ts
+│       └── package.json
+│
+├── packages/
+│   └── shared/
+│       └── src/
+│           ├── models/
+│           ├── enums/
+│           ├── dto/
+│           └── index.ts
+│
+├── docker-compose.yml
+├── package.json
+├── .env.example
+└── README.md
+```
+
+---
+
+# 10. Batasan Sistem
+
+Agar pengembangan dapat diselesaikan dalam waktu yang tersedia, versi pertama KantinQ memiliki beberapa batasan.
+
+### Tidak termasuk dalam versi pertama:
+
+* Pembayaran online.
+* Integrasi QRIS.
+* GoPay, DANA, OVO, dan layanan pembayaran digital lainnya.
+* Pengantaran makanan.
+* GPS tracking.
+* Sistem rekomendasi makanan berbasis AI.
+* Aplikasi Android/iOS khusus.
+* Integrasi WhatsApp atau SMS.
+* Sistem loyalty atau poin pelanggan.
+* Reservasi meja.
+* Integrasi sistem akademik kampus.
+* Penggunaan multi-kampus.
+
+Pembayaran dilakukan langsung kepada penjual di kantin.
+
+Sistem juga tidak menggunakan autentikasi pada versi pertama sehingga fokus pengembangan berada pada fungsi utama pemesanan dan pengelolaan antrean.
+
+---
+
+# 11. Cara Menjalankan
+
+## Persyaratan
+
+Pastikan sudah tersedia:
+
+* Node.js
+* npm
+* Docker
+* Docker Compose
+
+## 1. Clone Repository
+
+```bash
+git clone <URL_REPOSITORY>
+cd kantinq
+```
+
+## 2. Install Dependency
+
+```bash
+npm install
+```
+
+## 3. Siapkan Environment
+
+Salin file `.env.example` menjadi `.env`.
+
+Contoh konfigurasi:
+
+```env
+DATABASE_URL="mysql://root:root@localhost:3306/kantinq"
+```
+
+## 4. Jalankan MySQL
+
+```bash
+docker compose up -d
+```
+
+## 5. Jalankan Prisma Migration
+
+```bash
+npm run db:migrate
+```
+
+## 6. Jalankan Seed
+
+```bash
+npm run db:seed
+```
+
+## 7. Jalankan Aplikasi
+
+```bash
+npm run dev
+```
+
+Frontend dan backend kemudian dapat diakses melalui alamat yang ditampilkan oleh project.
+
+---
+
+# 12. Rencana Pengembangan
+
+Pengembangan KantinQ direncanakan secara bertahap agar dapat diselesaikan dalam 12 pertemuan.
+
+| Tahap        | Fokus                                       |
+| ------------ | ------------------------------------------- |
+| Pertemuan 1  | Identifikasi masalah dan kebutuhan pengguna |
+| Pertemuan 2  | Analisis sistem dan use case                |
+| Pertemuan 3  | ERD dan rancangan database                  |
+| Pertemuan 4  | Prototype dan desain antarmuka              |
+| Pertemuan 5  | Setup project dan koneksi database          |
+| Pertemuan 6  | Implementasi data kantin dan menu           |
+| Pertemuan 7  | Implementasi pemesanan                      |
+| Pertemuan 8  | Implementasi nomor antrean                  |
+| Pertemuan 9  | Dashboard penjual                           |
+| Pertemuan 10 | Status pesanan dan riwayat                  |
+| Pertemuan 11 | QR Code dan integrasi seluruh fitur         |
+| Pertemuan 12 | Testing, debugging, dan persiapan demo      |
+
+---
+
+# 13. Kriteria Keberhasilan
+
+KantinQ dinyatakan berhasil apabila skenario utama berikut dapat berjalan dengan baik:
+
+### Sisi Mahasiswa
+
+* Dapat mengakses halaman kantin melalui QR Code.
+* Dapat melihat menu yang tersedia.
+* Dapat memilih menu dan jumlah pesanan.
+* Dapat membuat pesanan.
+* Mendapatkan nomor antrean.
+* Dapat melihat status pesanan.
+* Dapat melihat detail pesanan.
+
+### Sisi Penjual
+
+* Dapat melihat pesanan yang masuk.
+* Dapat melihat urutan antrean.
+* Dapat mengubah status pesanan.
+* Dapat mengelola menu.
+* Dapat mengatur menu tersedia atau habis.
+* Dapat melihat riwayat pesanan.
+
+### Sisi Sistem
+
+* Data tersimpan dengan benar di database.
+* Nomor antrean dibuat secara otomatis.
+* Perhitungan total pesanan sesuai dengan item yang dipilih.
+* Status pesanan berubah sesuai proses.
+* Pesanan tidak hilang ketika halaman diperbarui.
+* Aplikasi dapat digunakan melalui smartphone maupun desktop.
+* Seluruh fitur utama dapat berjalan tanpa error pada skenario penggunaan normal.
+
+---
+
+# 14. Kontributor
+
+Proyek ini dikembangkan sebagai bagian dari tugas mata kuliah **Rekayasa Perangkat Lunak (RPL)**.
+
+**Nama Anggota Kelompok:**
+
+* Nama 1 — Developer
+* Nama 2 — Developer
+* Nama 3 — UI/UX
+* Nama 4 — Database / Backend
+
+---
+
+## KantinQ
+
+**Scan. Pesan. Dapat Nomor. Tunggu. Ambil.**
+
+> Proyek ini dikembangkan untuk menerapkan konsep analisis kebutuhan, perancangan sistem, pengembangan full-stack, database, REST API, dan pengujian perangkat lunak dalam studi kasus antrean kantin kampus.
